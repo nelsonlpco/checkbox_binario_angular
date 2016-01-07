@@ -24,7 +24,7 @@
             ckb.setAttribute('type', 'checkbox');
             ckb.setAttribute('name', 'tipo');
             ckb.setAttribute('value', valor);
-            ckb.setAttribute('id', attrs.identificador + valor);
+            ckb.setAttribute('id', scope.identificador + valor);
             if (checked) {
                 ckb.setAttribute('checked', 'checked');
             }
@@ -36,7 +36,7 @@
                 scope.$apply();
             });
             element.append(ckb);
-            element.append('<label for="' + attrs.identificador + valor + '">' + opcoes[i] + '</label>');
+            element.append('<label for="' + scope.identificador + valor + '">' + opcoes[i] + '</label>');
             checked = false;
             valor *= 2;
         }
@@ -49,7 +49,8 @@
             template: '<div class="row"></div>',
             scope: {
                 opcoes: '@',
-                modelo: '='
+                modelo: '=',
+                identificador: '@'
             }
         };
     };
